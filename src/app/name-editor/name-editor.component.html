@@ -1,0 +1,14 @@
+<div>
+  <h3>NameEdit</h3>
+  <label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+  <p>
+    Value: {{ name.value }}
+  </p>
+  <div>
+    <button (click)="updateName()">Update Name</button>
+  </div>
+
+</div>

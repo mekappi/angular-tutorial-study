@@ -1,0 +1,82 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+  <div *ngIf="profileForm.errors?.identityRevealed && (profileForm.touched || profileForm.dirty)" class="cross-validation-error-message alert alert-danger">
+    Name cannot match alter ego.
+  </div>
+  {{debug}}
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+    <div *ngIf="lastName.errors.required">
+      Name is required.
+    </div>
+    <div *ngIf="lastName.errors.minlength">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="lastName.errors.forbiddenName">
+      Name cannot be Bob.
+    </div>
+  </div>
+
+  <label>
+    AlterEgo:
+    <input type="text" formControlName="alterEgo">
+  </label>
+  <div *ngIf="alterEgo.invalid && (alterEgo.dirty || alterEgo.touched)" class="alert alert-danger">
+    <div *ngIf="alterEgo.errors?.uniqueAlterEgo">
+      Not Exists input Hero
+    </div>
+  </div>
+
+
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <label>
+      Street:
+      <input type="text" formControlName="street">
+    </label>
+
+    <label>
+      City:
+      <input type="text" formControlName="city">
+    </label>
+
+    <label>
+      State:
+      <input type="text" formControlName="state">
+    </label>
+
+    <label>
+      Zip Code:
+      <input type="text" formControlName="zip">
+    </label>
+  </div>
+  <div formArrayName="aliases">
+    <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+
+    <div *ngFor="let address of aliases.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label>
+        Alias:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+  </div>
+
+  <p>
+    <button (click)="updateProfile()">Update Profile</button>
+  </p>
+  <p>
+    Form Status: {{ profileForm.status }}
+  </p>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
