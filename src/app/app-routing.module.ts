@@ -8,6 +8,7 @@ import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { ObservableTestComponent } from './observable-test/observable-test.component';
+import { HttpTestComponent } from './http-test/http-test.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'profile/edit', component: ProfileEditorComponent },
   { path: "templateform", component: HeroFormComponent},
   { path: "observe", component: ObservableTestComponent },
-
+  { path: "httptest", component: HttpTestComponent },
 ];
 
 @NgModule({

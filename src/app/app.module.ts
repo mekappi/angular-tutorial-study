@@ -26,6 +26,7 @@ import { ForbiddenValidatorDirective } from 'src/shared/forbidden-name.directive
 import { IdentityRevealedValidatorDirective } from 'src/shared/identity-revealed.directive';
 import { UniqueAlterEgoDirective } from 'src/shared/some-async.directive';
 import { ObservableTestComponent } from './observable-test/observable-test.component';
+import { HttpTestComponent } from './http-test/http-test.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ObservableTestComponent } from './observable-test/observable-test.compo
     IdentityRevealedValidatorDirective,
     UniqueAlterEgoDirective,
     ObservableTestComponent,
+    HttpTestComponent,
   ],
   imports: [
     BrowserModule,
